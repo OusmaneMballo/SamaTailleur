@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tailleurdbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="passwd" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="droit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="image" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="genre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="commande">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datecommander" Type="DateTime" Nullable="false" />
+    <Property Name="datelivraison" Type="DateTime" Nullable="false" />
+    <Property Name="idclient" Type="Int32" Nullable="false" />
+    <Property Name="typeTissu" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="longTissu" Type="Int32" Nullable="false" />
+    <Property Name="model" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="prixPaye" Type="Int32" Nullable="false" />
+    <Property Name="montantAnvace" Type="Int32" Nullable="false" />
+    <Property Name="etat" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="mesure">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idclient" Type="Int32" Nullable="false" />
+    <Property Name="epole" Type="Int32" Nullable="false" />
+    <Property Name="poitrine" Type="Int32" Nullable="false" />
+    <Property Name="manchelong" Type="Int32" Nullable="false" />
+    <Property Name="manchecourte" Type="Int32" Nullable="false" />
+    <Property Name="tourefesse" Type="Int32" Nullable="false" />
+    <Property Name="longpentalon" Type="Int32" Nullable="false" />
+    <Property Name="tourecuisse" Type="Int32" Nullable="false" />
+    <Property Name="tourebras" Type="Int32" Nullable="false" />
+    <Property Name="ceinture" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="tailleurdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="clients" EntityType="Self.client" />
+    <EntitySet Name="commandes" EntityType="Self.commande" />
+    <EntitySet Name="mesures" EntityType="Self.mesure" />
+    <EntitySet Name="femmes" EntityType="tailleurdbModel.femme" />
+    <EntitySet Name="hommes" EntityType="tailleurdbModel.homme" />
+  </EntityContainer>
+  <EntityType Name="femme">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="taille" Type="Int32" Nullable="false" />
+    <Property Name="longzupe" Type="Int32" Nullable="false" />
+    <Property Name="longrobe" Type="Int32" Nullable="false" />
+    <Property Name="longtaillebasse" Type="Int32" Nullable="false" />
+    <Property Name="long3_4" Type="Int32" Nullable="false" />
+    <Property Name="idmesure" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="homme">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="longdemisaison" Type="Int32" Nullable="false" />
+    <Property Name="cout" Type="Int32" Nullable="false" />
+    <Property Name="idmesure" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

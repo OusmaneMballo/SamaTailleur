@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tailleurdbModelStoreContainer" CdmEntityContainer="tailleurdbEntities">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="tailleurdbModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="droit" ColumnName="droit" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="passwd" ColumnName="passwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="tailleurdbModel.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="genre" ColumnName="genre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="commandes">
+      <EntityTypeMapping TypeName="tailleurdbModel.commande">
+        <MappingFragment StoreEntitySet="commande">
+          <ScalarProperty Name="etat" ColumnName="etat" />
+          <ScalarProperty Name="montantAnvace" ColumnName="montantAnvace" />
+          <ScalarProperty Name="prixPaye" ColumnName="prixPaye" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="longTissu" ColumnName="longTissu" />
+          <ScalarProperty Name="typeTissu" ColumnName="typeTissu" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="datecommander" ColumnName="datecommander" />
+          <ScalarProperty Name="datelivraison" ColumnName="datelivraison" />
+          <ScalarProperty Name="idclient" ColumnName="idclient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mesures">
+      <EntityTypeMapping TypeName="tailleurdbModel.mesure">
+        <MappingFragment StoreEntitySet="mesure">
+          <ScalarProperty Name="ceinture" ColumnName="ceinture" />
+          <ScalarProperty Name="tourebras" ColumnName="tourebras" />
+          <ScalarProperty Name="tourecuisse" ColumnName="tourecuisse" />
+          <ScalarProperty Name="longpentalon" ColumnName="longpentalon" />
+          <ScalarProperty Name="tourefesse" ColumnName="tourefesse" />
+          <ScalarProperty Name="manchecourte" ColumnName="manchecourte" />
+          <ScalarProperty Name="manchelong" ColumnName="manchelong" />
+          <ScalarProperty Name="poitrine" ColumnName="poitrine" />
+          <ScalarProperty Name="epole" ColumnName="epole" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idclient" ColumnName="idclient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="femmes">
+      <EntityTypeMapping TypeName="tailleurdbModel.femme">
+        <MappingFragment StoreEntitySet="femme">
+          <ScalarProperty Name="idmesure" ColumnName="idmesure" />
+          <ScalarProperty Name="long3_4" ColumnName="long3_4" />
+          <ScalarProperty Name="longtaillebasse" ColumnName="longtaillebasse" />
+          <ScalarProperty Name="longrobe" ColumnName="longrobe" />
+          <ScalarProperty Name="longzupe" ColumnName="longzupe" />
+          <ScalarProperty Name="taille" ColumnName="taille" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hommes">
+      <EntityTypeMapping TypeName="tailleurdbModel.homme">
+        <MappingFragment StoreEntitySet="homme">
+          <ScalarProperty Name="idmesure" ColumnName="idmesure" />
+          <ScalarProperty Name="cout" ColumnName="cout" />
+          <ScalarProperty Name="longdemisaison" ColumnName="longdemisaison" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

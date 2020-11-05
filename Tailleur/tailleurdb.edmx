@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="tailleurdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="prenom" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="passwd" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="droit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="prenom" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="genre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="adresse" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="tel" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datecommander" Type="date" Nullable="false" />
+          <Property Name="datelivraison" Type="date" Nullable="false" />
+          <Property Name="typeTissu" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="longTissu" Type="int" Nullable="false" />
+          <Property Name="model" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="prixPaye" Type="int" Nullable="false" />
+          <Property Name="montantAnvace" Type="int" Nullable="false" />
+          <Property Name="etat" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="idclient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="femme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="taille" Type="int" Nullable="false" />
+          <Property Name="longzupe" Type="int" Nullable="false" />
+          <Property Name="longrobe" Type="int" Nullable="false" />
+          <Property Name="longtaillebasse" Type="int" Nullable="false" />
+          <Property Name="long3_4" Type="int" Nullable="false" />
+          <Property Name="idmesure" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="homme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="longdemisaison" Type="int" Nullable="false" />
+          <Property Name="cout" Type="int" Nullable="false" />
+          <Property Name="idmesure" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mesure">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="epole" Type="int" Nullable="false" />
+          <Property Name="poitrine" Type="int" Nullable="false" />
+          <Property Name="manchelong" Type="int" Nullable="false" />
+          <Property Name="manchecourte" Type="int" Nullable="false" />
+          <Property Name="tourefesse" Type="int" Nullable="false" />
+          <Property Name="longpentalon" Type="int" Nullable="false" />
+          <Property Name="tourecuisse" Type="int" Nullable="false" />
+          <Property Name="tourebras" Type="int" Nullable="false" />
+          <Property Name="ceinture" Type="int" Nullable="false" />
+          <Property Name="idclient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="tailleurdbModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="tailleurdb" store:Type="Tables" />
+          <EntitySet Name="client" EntityType="Self.client" Schema="tailleurdb" store:Type="Tables" />
+          <EntitySet Name="commande" EntityType="Self.commande" Schema="tailleurdb" store:Type="Tables" />
+          <EntitySet Name="femme" EntityType="Self.femme" Schema="tailleurdb" store:Type="Tables" />
+          <EntitySet Name="homme" EntityType="Self.homme" Schema="tailleurdb" store:Type="Tables" />
+          <EntitySet Name="mesure" EntityType="Self.mesure" Schema="tailleurdb" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tailleurdbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passwd" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="droit" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datecommander" Type="DateTime" Nullable="false" />
+          <Property Name="datelivraison" Type="DateTime" Nullable="false" />
+          <Property Name="idclient" Type="Int32" Nullable="false" />
+          <Property Name="typeTissu" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="longTissu" Type="Int32" Nullable="false" />
+          <Property Name="model" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="prixPaye" Type="Int32" Nullable="false" />
+          <Property Name="montantAnvace" Type="Int32" Nullable="false" />
+          <Property Name="etat" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mesure">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idclient" Type="Int32" Nullable="false" />
+          <Property Name="epole" Type="Int32" Nullable="false" />
+          <Property Name="poitrine" Type="Int32" Nullable="false" />
+          <Property Name="manchelong" Type="Int32" Nullable="false" />
+          <Property Name="manchecourte" Type="Int32" Nullable="false" />
+          <Property Name="tourefesse" Type="Int32" Nullable="false" />
+          <Property Name="longpentalon" Type="Int32" Nullable="false" />
+          <Property Name="tourecuisse" Type="Int32" Nullable="false" />
+          <Property Name="tourebras" Type="Int32" Nullable="false" />
+          <Property Name="ceinture" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="tailleurdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="clients" EntityType="Self.client" />
+          <EntitySet Name="commandes" EntityType="Self.commande" />
+          <EntitySet Name="mesures" EntityType="Self.mesure" />
+          <EntitySet Name="femmes" EntityType="tailleurdbModel.femme" />
+          <EntitySet Name="hommes" EntityType="tailleurdbModel.homme" />
+        </EntityContainer>
+        <EntityType Name="femme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="taille" Type="Int32" Nullable="false" />
+          <Property Name="longzupe" Type="Int32" Nullable="false" />
+          <Property Name="longrobe" Type="Int32" Nullable="false" />
+          <Property Name="longtaillebasse" Type="Int32" Nullable="false" />
+          <Property Name="long3_4" Type="Int32" Nullable="false" />
+          <Property Name="idmesure" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="homme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="longdemisaison" Type="Int32" Nullable="false" />
+          <Property Name="cout" Type="Int32" Nullable="false" />
+          <Property Name="idmesure" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tailleurdbModelStoreContainer" CdmEntityContainer="tailleurdbEntities">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="tailleurdbModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="droit" ColumnName="droit" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="passwd" ColumnName="passwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="tailleurdbModel.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commandes">
+            <EntityTypeMapping TypeName="tailleurdbModel.commande">
+              <MappingFragment StoreEntitySet="commande">
+                <ScalarProperty Name="etat" ColumnName="etat" />
+                <ScalarProperty Name="montantAnvace" ColumnName="montantAnvace" />
+                <ScalarProperty Name="prixPaye" ColumnName="prixPaye" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="longTissu" ColumnName="longTissu" />
+                <ScalarProperty Name="typeTissu" ColumnName="typeTissu" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="datecommander" ColumnName="datecommander" />
+                <ScalarProperty Name="datelivraison" ColumnName="datelivraison" />
+                <ScalarProperty Name="idclient" ColumnName="idclient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mesures">
+            <EntityTypeMapping TypeName="tailleurdbModel.mesure">
+              <MappingFragment StoreEntitySet="mesure">
+                <ScalarProperty Name="ceinture" ColumnName="ceinture" />
+                <ScalarProperty Name="tourebras" ColumnName="tourebras" />
+                <ScalarProperty Name="tourecuisse" ColumnName="tourecuisse" />
+                <ScalarProperty Name="longpentalon" ColumnName="longpentalon" />
+                <ScalarProperty Name="tourefesse" ColumnName="tourefesse" />
+                <ScalarProperty Name="manchecourte" ColumnName="manchecourte" />
+                <ScalarProperty Name="manchelong" ColumnName="manchelong" />
+                <ScalarProperty Name="poitrine" ColumnName="poitrine" />
+                <ScalarProperty Name="epole" ColumnName="epole" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idclient" ColumnName="idclient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="femmes">
+            <EntityTypeMapping TypeName="tailleurdbModel.femme">
+              <MappingFragment StoreEntitySet="femme">
+                <ScalarProperty Name="idmesure" ColumnName="idmesure" />
+                <ScalarProperty Name="long3_4" ColumnName="long3_4" />
+                <ScalarProperty Name="longtaillebasse" ColumnName="longtaillebasse" />
+                <ScalarProperty Name="longrobe" ColumnName="longrobe" />
+                <ScalarProperty Name="longzupe" ColumnName="longzupe" />
+                <ScalarProperty Name="taille" ColumnName="taille" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hommes">
+            <EntityTypeMapping TypeName="tailleurdbModel.homme">
+              <MappingFragment StoreEntitySet="homme">
+                <ScalarProperty Name="idmesure" ColumnName="idmesure" />
+                <ScalarProperty Name="cout" ColumnName="cout" />
+                <ScalarProperty Name="longdemisaison" ColumnName="longdemisaison" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
